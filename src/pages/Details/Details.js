@@ -66,7 +66,7 @@ export const Details = ({ handleBack, amount }) => {
       item.toPay = Number((amount + newTips) / people).toFixed(2);
     });
     setListOfPeople([...newList]);
-  }
+  };
 
   const handleSend = () => {
     ToastAndroid.show("Request sent successfully!", ToastAndroid.SHORT);
@@ -144,7 +144,7 @@ export const Details = ({ handleBack, amount }) => {
             maximumTrackTintColor="#808080"
           />
           <Text style={styles.textStyle} title="Tips">
-            {amount !== 0 ? Number((tips / amount) * 100) : 0} %
+            {amount !== 0 ? Number((tips / amount) * 100).toFixed(2) : 0} %
           </Text>
           <CurrencyInput
             value={tips}
@@ -161,7 +161,9 @@ export const Details = ({ handleBack, amount }) => {
       <View style={styles.footerContainer}>
         <View style={styles.amountContainer}>
           <Text style={styles.textStyle}>Total Amount</Text>
-          <Text style={styles.totalAmountStyle}>${Number(amount + tips).toFixed(2)}</Text>
+          <Text style={styles.totalAmountStyle}>
+            ${Number(amount + tips).toFixed(2)}
+          </Text>
         </View>
         <View style={styles.buttonsContainer}>
           <Button
