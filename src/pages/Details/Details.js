@@ -21,7 +21,7 @@ export const Details = ({ handleBack, amount }) => {
     setPeople(numberOfPeople);
     const arr = Array.from({ length: numberOfPeople }, (person, index) => {
       return {
-        name: `Person ${index}`,
+        name: `Person ${index + 1}`,
         toPay: Number((amount + tips) / numberOfPeople).toFixed(2),
         // value: amount / numberOfPeople,
         // sliderValue: `${numberOfPeople / 100}`,
