@@ -20,9 +20,8 @@ export const Details = ({ handleBack, amount }) => {
   useEffect(() => {
     let value =
       amount && amount !== 0 ? Number((tips / amount) * 100).toFixed(2) : 0;
-    console.log(value);
-    setSliderValue(value)
-  }, []);
+    setSliderValue(value);
+  }, [amount, tips]);
   const handleOnChangePeople = (e) => {
     let numberOfPeople = e <= 10 ? e : 10;
     setPeople(numberOfPeople);
