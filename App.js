@@ -18,11 +18,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       {!appliedClicked ? (
-        <Home
-          value={value}
-          setValue={setValue}
-          handlePress={handlePress}
-        />
+        <Home value={value} setValue={setValue} handlePress={handlePress} />
       ) : (
         <Details amount={value} handleBack={handleBack} />
       )}

@@ -8,14 +8,21 @@ import {
   ToastAndroid,
 } from "react-native";
 import Slider from "@react-native-community/slider";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CurrencyInput from "react-native-currency-input";
 
 export const Details = ({ handleBack, amount }) => {
   const [people, setPeople] = useState(0);
   const [listOfpeople, setListOfPeople] = useState([]);
   const [tips, setTips] = useState(0.0);
+  const [sliderValue, setSliderValue] = useState(0);
 
+  useEffect(() => {
+    let value =
+      amount && amount !== 0 ? Number((tips / amount) * 100).toFixed(2) : 0;
+    console.log(value);
+    setSliderValue(value)
+  }, []);
   const handleOnChangePeople = (e) => {
     let numberOfPeople = e <= 10 ? e : 10;
     setPeople(numberOfPeople);
@@ -136,7 +143,7 @@ export const Details = ({ handleBack, amount }) => {
           <Slider
             style={{ width: 100, height: 40 }}
             step={1}
-            value={Number(amount !== 0 ? (tips / amount) * 100 : 0).toFixed(2)}
+            value={sliderValue}
             onValueChange={(e) => handleTipsSlider(e)}
             minimumValue={0}
             maximumValue={100}

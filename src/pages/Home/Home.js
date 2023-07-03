@@ -20,9 +20,11 @@ export const Home = ({ setValue, handlePress, value }) => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: "3px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
   },
   inputContainer: {
-    padding: "3px",
   },
 });
